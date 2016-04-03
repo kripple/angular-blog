@@ -1,3 +1,3 @@
-# angular-blog
+# Angular Blog
 Personal blogging platform 
 
