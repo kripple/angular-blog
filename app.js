@@ -1,10 +1,11 @@
 angular.module('blog', []);
 
 angular.module('blog')
-  .controller('DashboardController', DashboardController);
+  .controller('dashboardController', dashboardController);
 
-function DashboardController() { 
-  $rootScope.pageTitle = "TEST";
+function dashboardController($scope) { 
+  $scope.pageTitle = "TEST";
+  
 }
 
 
