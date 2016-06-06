@@ -1,0 +1,45 @@
+---
+layout: post
+title: GoDaddy + Github Pages
+category: Web Development
+tags: GoDaddy, Configuration, Github Pages, Github
+---
+
+<section>
+<p>This post is supposed to be about my experience creating, maintaining, and improving a website over the past 9 weeks. I have had a blast learning HTML and CSS and designing layouts, troubleshooting, and creating content for this site. I expect that blogging is something I will continue to do for the rest of my life. The first major headache I had regarding this website was setting it up with a personal domain name. For this reason, I am going to outline the process below, in the hopes that it will help anyone attempting the same.</p>
+
+<p>I am excessively grateful to <a href="http://andrewsturges.com/blog/jekyll/tutorial/2014/11/06/github-and-godaddy.html">Andrew Sturges</a> for creating the guide that made my stuggles much less bad than they may have been.</p>  
+
+<p>As the title indicates, this post is specifically aimed at using GoDaddy with Github. For all other sites / services, see elsewhere.</p>
+</section>
+
+<section>
+<h3>How-To Guide</h3>
+
+<p>You will need to perform the following steps:</p>
+<p>Step 1: Add "CNAME" file on Github<br>
+Step 2: Add "A (Host)" record file on GoDaddy<br>
+Step 3: Wait for changes to take effect</p>
+</section>
+
+<section>
+<h3>Step 1: Add "CNAME" file on Github</h3>
+
+<p>Follow the 8 steps on <a href="https://help.github.com/articles/adding-a-cname-file-to-your-repository/">Github Help page</a> for adding a CNAME file. Basically, create a file in your 'base' directory called 'CNAME', with your new domain name in it. For example, I migrated from kripple.github.io -> kellyripple.com. My 'base' directory was located at https://github.com/kripple/kripple.github.io. I went there and added a file called 'CNAME' with the line 'kellyripple.com'.</p>
+</section>
+
+<section>
+<h3>Step 2: Add "A (Host)" record file GoDaddy</h3>
+
+<p>Go to GoDaddy.com, click on the little settings icon dropdown for your domain and select "Manage DNS".</p>
+<img class="add-border" src="/public/images/manage-dns.png">
+<p>As per <a href="https://help.github.com/articles/tips-for-configuring-an-a-record-with-your-dns-provider/">Github's instructions</a>, add two A records: @ -> 192.30.252.153 and @ -> 192.30.252.154.</p>
+<img class="add-border" src="/public/images/a-host.png">
+
+</section>
+
+<section>
+<h3>Step 3: Wait for changes to take effect</h3>
+<p>I set my changes to go live in 30 minutes. I didn't time it, but it definitely took less than a few hours for my site to update. If it's not up after a few hours, see <a href="https://help.github.com/articles/my-custom-domain-isn-t-working/">Github's help pages</a>.</p>
+
+</section>

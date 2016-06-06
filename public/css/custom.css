@@ -1,0 +1,79 @@
+/*
+ * Contents
+ *
+ * Captions
+ * Headshot
+ * Spacing Modifiers
+ * List Styling
+ * Alignment
+ * Subheading Formats
+ * Borders
+ */
+
+/*
+ * Captions
+ *
+ */
+ figcaption {
+  text-align: center;
+ }
+
+/*
+ * Headshot
+ *
+ */
+ #headshot {
+	position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  background-color: black;
+  transform: rotate(25deg);
+  border: 2px solid black;
+  margin: 0 auto;
+  width: 15rem;
+ }
+
+/*
+ * Spacing Modifiers
+ *
+ */
+ .spacer {
+	margin: 2rem;
+ }
+
+/*
+ * List Styling
+ *
+ */
+ #post-list {
+ 	list-style-type: none;
+ 	padding-left: 0;
+ }
+
+ /*
+ * Alignment
+ *
+ */
+.right-align {
+	float: right;
+	/*clear: left;*/
+}
+
+/*
+ * Subheading Formats
+ *
+ */
+.subheading {
+  display: block;
+  margin-top: -.5rem;
+  margin-bottom: 1rem;
+  color: #9a9a9a;
+}
+
+/*
+ * Borders
+ *
+ */
+.add-border {
+  border: 2px solid #292923;
+}

@@ -1,0 +1,105 @@
+---
+layout: post
+title: Ruby Building Blocks
+category: Web Development
+tags: Beginner, Ruby, Programming
+---
+
+<section>
+  <p>
+    I feel like a toddler. My brain hurts and nothing makes sense. The internet insists on explaining things to me like I already know things. Dear Internet, I most certainly do not. I have included here the stuff that did make sense. May these humble building blocks aid you in your own pursuit of understanding.
+  </p>
+</section>
+
+<section>
+  <h2>Modules vs. Classes</h2>
+
+  <p>
+    From my <a href="http://kripple.github.io/method-map">blog post on the map method</a>, a module is a way of grouping together methods, classes, and constants - a collection of reuseable code. A class, on the other hand, is a Ruby 'thing' (object) with a state and a behavior. 
+  </p>
+
+  <p>Quick define: superclass and subclass describe the relationship between classes. The subclass acquires the behaviors (methods) of the superclass. It's a hierarchy. Super → top, sub → bottom.</p>
+
+  <table id="class-module-comparison">
+    <tbody>
+      <tr>
+        <th></th><th>Modules</th><th>Classes</th>
+      </tr>
+      <tr>
+        <td class="first-row">Definition</td><td>A collection of reuseable code. </td><td>A Ruby object with a state and a behavior.</td>
+      </tr>  
+      <tr>
+        <td class="first-row">Instantiation</td><td>No.</td><td>Yes. Class.new()</td>
+      </tr> 
+      <tr>
+        <td class="first-row">Inclusion</td><td>Include in classes or modules with the 'include' command. A module can be included by multiple classes.</td><td>No.</td>
+      </tr> 
+      <tr>
+        <td class="first-row">Inheritance</td><td>Does not do inheritance.</td><td>Can inherit methods from it's superclass, can serve as a base for a subclass to inherit.</td>
+      </tr> 
+      <tr>
+        <td class="first-row">Purpose</td><td>A code container, good for organization. Provides methods that you can use across multiple classes. Use when you want to group things together that don't naturally form a class.</td><td>To create instances of itself.</td>
+      </tr> 
+      <tr>
+        <td class="first-row">Contains</td><td>methods, constants, variables</td><td>methods, constants, variables</td>
+      </tr>     
+      <tr>
+        <td class="first-row">Syntax</td><td>module ModuleName .. end</td><td>class ClassName .. end</td>
+      </tr>  
+ 
+
+
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2>Namespace &amp; Mixins</h2>
+
+  <p>Stay with me, these terms require some exposition. <a href="http://ruby-doc.com/docs/ProgrammingRuby/html/tut_modules.html">This wonderfully fabulous article</a> provides a great explanation. In fact, it's so great that I'm going to include it here:</p>
+
+  <hr>
+
+  <p>A good example of when the term 'namespace' becomes relevant is when you want to collaborate with other developers and share code.</p>
+
+  <p>(Nothing below here is mine)
+
+  <p>Say you write a set of trigonometry functions sin, cos, and so on. You stuff them all into a file, trig.rb, for future generations to enjoy. Meanwhile, Sally is working on a simulation of good and evil, and codes up a set of her own useful routines, including beGood and sin, and sticks them into action.rb. Joe, who wants to write a program to find out how many angels can dance on the head of a pin, needs to load both trig.rb and action.rb into his program. But both define a method called sin. Bad news.</p>
+
+  <p>The answer is the module mechanism. Modules define a namespace, a sandbox in which your methods and constants can play without having to worry about being stepped on by other methods and constants. The trig functions can go into one module:</p>
+
+  {% highlight ruby %}
+module Trig
+  PI = 3.141592654
+
+  def Trig.sin(x)
+    # ..
+  end
+
+  def Trig.cos(x)
+    # ..
+  end
+end
+  {% endhighlight %}
+
+<p>and the good and bad action methods can go into another:</p>
+
+{% highlight ruby %}
+module Action
+  VERY_BAD = 0
+  BAD      = 1
+
+  def Action.sin(badness)
+    # ...
+  end
+end
+  {% endhighlight %}
+
+<hr>
+
+<p>Pretty awesome right?!</p>
+
+<p>More awesomeness that isn't mine: "A module can't have instances, because a module isn't a class. However, you can include a module within a class definition. When this happens, all the module's instance methods are suddenly available as methods in the class as well. They get <strong>mixed in</strong>. In fact, mixed-in modules effectively behave as superclasses."</p>
+
+<p>There you go. Now you understand namespaces and mixins. If you don't, email me and tell me I did a poor job of explaining it / stringing together internet examples. I will not be offended and will likely thank you for the feedback.</p>
+</section>
