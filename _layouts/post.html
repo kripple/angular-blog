@@ -8,18 +8,31 @@ layout: default
   {{ content }}
 </div>
 
+{% assign maxRelatedPosts = 10 %}
+{% assign numPosts = 0 %}
+
 <div class="related">
   <h2>Related Posts</h2>
   <ul class="related-posts">
-    {% for post in site.related_posts limit:3 %}
-      <li>
-        <h3>
-          <a href="{{ post.url }}">
-            {{ post.title }}
-            <small>{{ post.date | date: "%B %-d, %Y" }}</small>
-          </a>
-        </h3>
-      </li>
+    {% for post in site.posts %}
+      {% if post.category == page.category %}
+        {% if post.title != page.title %}
+          {% assign numPosts = numPosts | plus: 1 %}
+          {% if numPosts <= maxRelatedPosts %}
+            <li>
+              <h3>
+                <a href="{{ post.url }}">
+                  {{ post.title }}
+                  <small>{{ post.date | date: "%B %-d, %Y" }}</small>
+                </a>
+              </h3>
+            </li>
+          {% endif %}
+        {% endif %}
+      {% endif %}
     {% endfor %}
   </ul>
 </div>
+
+
+
