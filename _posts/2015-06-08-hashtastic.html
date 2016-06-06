@@ -1,0 +1,46 @@
+---
+layout: post
+title: Hash-tastic
+category: Web Development
+tags: Beginner, Ruby, Data Structures, Programming
+---
+
+<section>
+  <p>This week I learned about the glorious data storage object that is the Hash. The following will be some fun information on how to differentiate, define, and reference arrays and hashes. Arrays and hashes are both constucts used for data storage. Their construction and syntax are different, so depending on what you're trying to do, one will likely be better than the other for specific applications.</p>
+</section>
+
+<section>  
+  <h2>Define</h2>
+  <h4>Array</h4>
+  <p>Ordered, iteger-indexed collections of any object. Array indexing starts at 0 and goes to (n-1), where n is the number of array indices. A negative index is assumed to be relative to the end of the array—that is, an index of -1 indicates the last element of the array, -2 is the next to last element in the array, and so on. </p>
+  <h4>Hash</h4>
+  <p>A collection of key-value pairs. Indexing is done via arbitrary keys of any object type. Hashes order their values in the sequence that the corresponding keys were inserted. By default, hashes return 'nil' when accessing keys that do not exist in the hash. It's possible to define this value to something other than 'nil' (see below).</p>
+</section>
+  
+<section>
+  <h2>Create</h2>
+  <p><code>Array.new</code> is functionally the same as <code>array = []</code> for creating a new array, except <code>Array.new</code> has some fun options for initializing the array however you like. For example:</p>
+  <p>{% highlight ruby %}Array.new # => []
+Array.new(2) # => [nil,nil]
+Array.new(3,"apple") # => ["apple","apple","apple"]{% endhighlight %}</p>
+  <p>Or the following:</p><p>{% highlight ruby %}example_array = [1,2,3]
+copycat_array = Array.new(example_array) # => [1,2,3]{% endhighlight %}</p>
+  <p>The procedure for creating a new hash is all but identical: <code>Hash.new</code>, or <code>hash = {}</code>. Similarly, <code>Hash.new</code> can do the following:</p> 
+  <p>{% highlight ruby %}Hash.new # => {}
+Hash.new(2) # => {}
+Hash.new(3,"apple") # => probably a syntax error (don't do this){% endhighlight %}</p>
+  <p>The <code>Hash.new(argument)</code> is the default value for accessing keys that do not exist in the hash. If you were to create an empty hash with the argument '2', and then try to access a nonexistent key (since our hash is empty in this example, ALL keys are nonexistent), the hash would return '2' instead of returning 'nil'.</p>
+</section>
+
+<section>
+  <h2>Access</h2>
+  <p>This is the easiest part:</p>
+  <p>{% highlight ruby %}puts array[integer] # => value of the array at the specified integer 
+puts hash["key"] # => value of the hash at the specified key{% endhighlight %}</p>
+  <p>Arrays have integer index-value pairs, hashes have key-value pairs. Try creating and then accessing array/hash values at indices/keys that do not exist. That way, you'll be able to recognize it if you ever do it unintentionally.</p>
+
+  <h2>Bonus</h2>
+  <p>{% highlight ruby %}puts array.index(value) # => index of the array at the specified value
+puts hash.key(value) # => key of the hash at the specified value{% endhighlight %}</p>
+  <p>For duplicate values at different indices/keys, the above two statements will return the first index/key that corresponds to the specified value. But don't take my word for it, try it for yourself!</p>
+</section>

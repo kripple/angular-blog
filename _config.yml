@@ -1,0 +1,24 @@
+# Dependencies
+markdown:         redcarpet
+highlighter:      pygments
+
+# Permalinks
+permalink:        /:title
+relative_permalinks: false
+
+# Setup
+title:            Kelly Ripple
+description:      'Software Engineer'
+url:              http://kellyripple.com
+baseurl:          /
+
+author:
+  name:           'Kelly Ripple'
+  url:            https://twitter.com/krippleffect
+
+# Custom vars
+version:          2.1.0
+
+github:
+  repo:           https://github.com/kripple/kripple.github.io
+
