@@ -94,10 +94,10 @@
 
   <p>In Ruby, a function is declared like so:</p>
   <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">HelloWorld</span><span class="p">()</span>
-  <span class="nb">puts</span> <span class="s2">&quot;Hello, World!&quot;</span>
+  <span class="nb">puts</span> <span class="s2">"Hello, World!"</span>
 <span class="k">end</span>
 
-<span class="no">HelloWorld</span><span class="p">()</span> <span class="c1"># &lt;-- &quot;Hello, World!&quot;</span></code></pre></div>
+<span class="no">HelloWorld</span><span class="p">()</span> <span class="c1"># &lt;-- "Hello, World!"</span></code></pre></div>
 
   <p>In JavaScript, it's a bit weirder.</p>
   <p>Javascript has three ways of defining functions: declaration, expression, and construction. It actually has more than three, but these are the most commonly used.</p>
@@ -108,13 +108,13 @@
   <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Function Declaration Example //</span>
 
 <span class="kd">function</span> <span class="nx">helloWorld</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Hello, World!"</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="nx">helloWorld</span><span class="p">()</span> <span class="c1">// &lt;-- &quot;Hello, World!&quot;</span>
+<span class="nx">helloWorld</span><span class="p">()</span> <span class="c1">// &lt;-- "Hello, World!"</span>
 
 <span class="kd">var</span> <span class="nx">storage</span> <span class="o">=</span> <span class="nx">helloWorld</span><span class="p">();</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">storage</span><span class="p">)</span> <span class="c1">// &lt;-- &quot;Hello, World!&quot;</span></code></pre></div>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">storage</span><span class="p">)</span> <span class="c1">// &lt;-- "Hello, World!"</span></code></pre></div>
 
   <h3>Function Expression</h3>
   <p>Creates a 'nameless' function, evaluated at runtime, end with a semicolon like all other expressions.</p>
@@ -122,10 +122,10 @@
   <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Function Expression Example //</span>
 
 <span class="kd">var</span> <span class="nx">some_variable</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Pass me to variables, I don&#39;t have a name on my own.&quot;</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Pass me to variables, I don't have a name on my own."</span><span class="p">);</span>
 <span class="p">};</span>
 
-<span class="nx">some_variable</span><span class="p">()</span> <span class="c1">// &lt;-- &quot;Pass me to variables, I don&#39;t have a name on my own.&quot;</span></code></pre></div>
+<span class="nx">some_variable</span><span class="p">()</span> <span class="c1">// &lt;-- "Pass me to variables, I don't have a name on my own."</span></code></pre></div>
 
   <h3>Function Constructor</h3>
   <p>This one gave me the most trouble this week. It's a function declaration that uses the 'this' method to list properties, and is called with the 'new' keyword. Using functions in this way allows for multiple instances of the same function, much like Ruby class objects.</p>
@@ -133,11 +133,11 @@
   <div class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Function Constructor Example //</span>
 
 <span class="kd">function</span> <span class="nx">messageTranslator</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">this</span><span class="p">.</span><span class="nx">message</span> <span class="o">=</span> <span class="s2">&quot;Hello, Sweetie.&quot;</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">message</span> <span class="o">=</span> <span class="s2">"Hello, Sweetie."</span><span class="p">;</span>
 <span class="p">};</span>
 
 <span class="kd">var</span> <span class="nx">read_this</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">messageTranslator</span><span class="p">()</span> 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">read_this</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span> <span class="c1">// &lt;-- &quot;Hello, Sweetie.&quot;</span></code></pre></div>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">read_this</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span> <span class="c1">// &lt;-- "Hello, Sweetie."</span></code></pre></div>
 
   <p>The difference between function declarations and function constructors is minimal. I'm by no means an experienced JavaSript programmer, but I have a feeling that the subtle difference in useage lead to significant design differences. Either that, or a function constructor IS a function declaration, just with extra useage. I will update once I learn more. Check out <a href="http://eloquentjavascript.net/03_functions.html">Eloquent JavaScript, by Marijn Haverbeke</a> for more information.</p>
 </section>
