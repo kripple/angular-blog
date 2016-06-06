@@ -116,9 +116,9 @@
   <span class="k">end</span>
 <span class="k">end</span></code></pre></div>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">random_integer</span> <span class="o">=</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="n">.</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># =&gt; Random integer from 0 - 100</span>
-<span class="n">new_instance</span> <span class="o">=</span> <span class="no">ClassName</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">random_integer</span><span class="p">)</span> 
-<span class="n">new_instance</span><span class="o">.</span><span class="n">first_instance_method</span> <span class="c1"># =&gt; prints random_integer</span></code></pre></div>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">random_integer</span> <span class="o">=</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="nf">.</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># =&gt; Random integer from 0 - 100</span>
+<span class="n">new_instance</span> <span class="o">=</span> <span class="no">ClassName</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">random_integer</span><span class="p">)</span> 
+<span class="n">new_instance</span><span class="p">.</span><span class="nf">first_instance_method</span> <span class="c1"># =&gt; prints random_integer</span></code></pre></div>
 </section>
 
 <section>
@@ -135,17 +135,17 @@
   <span class="k">end</span>
 <span class="k">end</span></code></pre></div>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">new_instance</span> <span class="o">=</span> <span class="no">IllustrateAttributes</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Read me&quot;</span><span class="p">,</span><span class="s2">&quot;Change me&quot;</span><span class="p">,</span><span class="s2">&quot;Do both/either&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">new_instance</span> <span class="o">=</span> <span class="no">IllustrateAttributes</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Read me"</span><span class="p">,</span><span class="s2">"Change me"</span><span class="p">,</span><span class="s2">"Do both/either"</span><span class="p">)</span>
 
-<span class="nb">puts</span> <span class="n">new_instance</span><span class="o">.</span><span class="n">read_me</span> <span class="c1"># =&gt; prints &quot;Read me&quot;</span>
-<span class="nb">puts</span> <span class="n">new_instance</span><span class="o">.</span><span class="n">write_me</span> <span class="c1"># =&gt; doesn&#39;t work</span>
-<span class="nb">puts</span> <span class="n">new_instance</span><span class="o">.</span><span class="n">read_or_write</span> <span class="c1"># =&gt; prints &quot;Do both/either&quot;</span>
+<span class="nb">puts</span> <span class="n">new_instance</span><span class="p">.</span><span class="nf">read_me</span> <span class="c1"># =&gt; prints "Read me"</span>
+<span class="nb">puts</span> <span class="n">new_instance</span><span class="p">.</span><span class="nf">write_me</span> <span class="c1"># =&gt; doesn't work</span>
+<span class="nb">puts</span> <span class="n">new_instance</span><span class="p">.</span><span class="nf">read_or_write</span> <span class="c1"># =&gt; prints "Do both/either"</span>
 
-<span class="n">new_instance</span><span class="o">.</span><span class="n">write_me</span> <span class="o">=</span> <span class="s2">&quot;Kelly was here.&quot;</span>
-<span class="n">new_instance</span><span class="o">.</span><span class="n">read_or_write</span> <span class="o">=</span> <span class="s2">&quot;Edited!&quot;</span>
+<span class="n">new_instance</span><span class="p">.</span><span class="nf">write_me</span> <span class="o">=</span> <span class="s2">"Kelly was here."</span>
+<span class="n">new_instance</span><span class="p">.</span><span class="nf">read_or_write</span> <span class="o">=</span> <span class="s2">"Edited!"</span>
 
-<span class="nb">puts</span> <span class="n">new_instance</span><span class="o">.</span><span class="n">read_or_write</span> <span class="c1"># =&gt; prints &quot;Edited!&quot;</span>
-<span class="n">new_instance</span><span class="o">.</span><span class="n">instance_variable_get</span><span class="p">(</span><span class="ss">:@write_me</span><span class="p">)</span> <span class="c1"># =&gt; &quot;Kelly was here.&quot;</span></code></pre></div>
+<span class="nb">puts</span> <span class="n">new_instance</span><span class="p">.</span><span class="nf">read_or_write</span> <span class="c1"># =&gt; prints "Edited!"</span>
+<span class="n">new_instance</span><span class="p">.</span><span class="nf">instance_variable_get</span><span class="p">(</span><span class="ss">:@write_me</span><span class="p">)</span> <span class="c1"># =&gt; "Kelly was here."</span></code></pre></div>
 
 <p>The reason there are read and write options (and they're not all just 'accessors') is to prevent strange errors from happening. For example, if you were storing a credit card number, you would never want to change that number, and if you were storing a pin number or password, you would never want to read it (probably).</p>
 </section> 
