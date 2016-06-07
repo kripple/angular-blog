@@ -11,8 +11,8 @@
 
     <nav class="sidebar-nav">
       <a class="sidebar-nav-item{% if page.url == '/index.html' %} active{% endif %}" href="/">About</a>
-      <a class="sidebar-nav-item{% if page.url == '/projects.html' %} active{% endif %}" href="/projects.html">Projects</a>
-      <a class="sidebar-nav-item{% if page.url == '/posts.html' %} active{% endif %}" href="/posts.html">Blog</a>
+      <a class="sidebar-nav-item{% if page.url == '/projects/' %} active{% endif %}" href="/projects">Projects</a>
+      <a class="sidebar-nav-item{% if page.url == '/blog/' %} active{% endif %}" href="/blog">Blog</a>
     </nav>
 
     <p>&copy; {{ site.time | date: '%Y' }}. Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>&amp;<a href="https://github.com/poole/hyde" target="_blank">Hyde</a>.</p>
