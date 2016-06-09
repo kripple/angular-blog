@@ -8,9 +8,17 @@
       </h1>
       <p class="lead">{{ site.description }}</p>
     </div>
+    
+    {% if page.url == '/index.html' %}
+      {% assign home = true %}
+    {% endif %}
+
+    {% if page.url == '/' %}
+        {% assign home = true %}
+    {% endif %}
 
     <nav class="sidebar-nav">
-      <a class="sidebar-nav-item{% if page.url == '/index.html' %} active{% endif %}" href="/">About</a>
+      <a class="sidebar-nav-item{% if home %} active{% endif %}" href="/">About</a>
       <a class="sidebar-nav-item{% if page.url == '/projects/' %} active{% endif %}" href="/projects">Projects</a>
       <a class="sidebar-nav-item{% if page.url == '/blog/' %} active{% endif %}" href="/blog">Blog</a>
     </nav>
