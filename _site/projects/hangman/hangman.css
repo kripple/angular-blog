@@ -1,0 +1,88 @@
+* {
+	border-radius: 5px;
+	font-family: 'Courier New';
+	margin:0 auto;
+	padding:5px;
+}
+main {
+	border:1px solid black;
+	width:320px;
+	padding:4px;
+}
+.title {
+	display: block;
+	width:150px;
+ 	margin: 0 auto;
+	text-align: center;
+	padding:5px;
+	border:1px solid black;
+	vertical-align: top;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+.gallows {
+	display: inline-block;
+	width:200px;
+	height:174px;
+	text-align: left;
+	vertical-align: top;
+	border:1px solid black;
+}
+.bad-letters {
+	display: inline-block;
+	width:200px;
+	border:1px solid black;
+	text-align: left;
+	vertical-align: top;
+	margin-top:5px;
+}
+.blank-letters {
+	display: block;
+	width:300px;
+	text-align: center;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.input-box {
+	display: inline-block;
+	width:80px;
+	height:18px;
+	padding-right: 20px;
+	text-align: left;
+	border:1px solid black;
+	vertical-align: center;
+}
+.new-game {
+	display: inline-block;
+	width:80px;
+	height:18px;
+ 	margin: 0 auto;
+	text-align: center;
+	border:1px solid black;
+	border-radius: 5px;
+	padding:5px;
+	vertical-align: center;
+}
+.definition {
+	display: block;
+	width:300px;
+	text-align: left;
+	margin-top:12px;
+	margin-bottom:12px;
+}
+.center-container {
+	display: block;
+	width:99%;
+ 	margin: 0 auto;
+	text-align: center;
+}
+input {
+	font-size: 1em;
+}
+a {
+	text-decoration: none;
+	color:black;
+}
+
+
+
