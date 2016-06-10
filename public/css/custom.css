@@ -37,6 +37,9 @@
  * Spacing Modifiers
  *
  */
+ .mini-spacer {
+  margin: 1rem;
+ }
  .spacer {
 	margin: 2rem;
  }
@@ -77,6 +80,7 @@
 iframe {
   height: 100%;
   width: 100%;
+  border: none;
 }
 
 

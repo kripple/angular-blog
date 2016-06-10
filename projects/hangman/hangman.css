@@ -1,18 +1,20 @@
 * {
 	border-radius: 5px;
 	font-family: 'Courier New';
-	margin:0 auto;
+	/*margin:0 auto;*/
 	padding:5px;
 }
 main {
 	border:1px solid black;
 	width:320px;
 	padding:4px;
+	position:relative;
 }
 .title {
 	display: block;
 	width:150px;
- 	margin: 0 auto;
+ 	position:absolute;
+	margin-left: 25%;
 	text-align: center;
 	padding:5px;
 	border:1px solid black;
