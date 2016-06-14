@@ -1,0 +1,52 @@
+---
+layout: default
+title: Resume
+permalink: resume/
+---
+
+{% assign front-end = "Angular,Ajax,JavaScript,jQuery,HTML5,CSS3,Bootstrap,Karma,Jasmine,D3 Data Visualization,Jekyll,Liquid Templating" | split: ',' %}
+
+{% assign back-end = "Node,Ruby,Ruby on Rails,Sinatra,REST,RSpec,ActiveRecord,PostgreSQL,SQL" | split: ',' %}
+
+{% assign methods = "Git,Github,Agile,Gulp,Bash,Command Line Interface" | split: ',' %}
+
+<ul style="list-style-type:none">
+
+<li>
+<div style="font-size:1.25rem" class="left-align">
+Kelly Ripple<br>
+Web Developer
+</div>
+
+<div class="right-align text-right">
+(443) 812-2021<br>
+kellyripple.com<br>
+hello@kellyripple.com
+</div>
+</li>
+
+<hr style="width:100%">
+
+<li>Front End:</li>
+<li style="margin-bottom:1rem">
+{% for tag in front-end %}
+<div class="skills-tag">{{ tag }}</div>
+{% endfor %}
+</li>
+
+<li>Back End:</li>
+<li style="margin-bottom:1rem">
+{% for tag in back-end %}
+<div class="skills-tag">{{ tag }}</div>
+{% endfor %}
+</li>
+
+<li>Methodologies:</li>
+<li style="margin-bottom:1rem">
+{% for tag in methods %}
+<div class="skills-tag">{{ tag }}</div>
+{% endfor %}
+</li>
+
+</ul>
+

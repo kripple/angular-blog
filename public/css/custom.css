@@ -8,6 +8,7 @@
  * Alignment
  * Subheading Formats
  * iframes
+ * tags
  */
 
 /*
@@ -61,6 +62,13 @@
 	float: right;
 	/*clear: left;*/
 }
+.text-right {
+  text-align: right;
+}
+.left-align {
+  float: left;
+  /*clear: right;*/
+}
 
 /*
  * Subheading Formats
@@ -81,6 +89,23 @@ iframe {
   height: 100%;
   width: 100%;
   border: none;
+}
+
+/*
+ * tags
+ *
+ */
+.skills-tag {
+  display: inline-block;
+  margin-right: 1px;
+  margin-bottom: 5px;
+  border: 1px solid;
+  border-radius: 1px;
+  padding: 4px 7px 1px 7px;
+}
+
+.skills-tag:hover {
+  color:#cc0000;
 }
 
 
