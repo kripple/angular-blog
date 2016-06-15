@@ -69,6 +69,9 @@
   float: left;
   /*clear: right;*/
 }
+.text-center {
+  text-align: center;
+}
 
 /*
  * Subheading Formats
@@ -108,7 +111,116 @@ iframe {
   color:#cc0000;
 }
 
+/*
+ * resume
+ *
+ */
+.resume-title {
+  font-size: 2.5rem;
+}
+.resume-subtitle {
+  font-size: 1.25rem;
+}
+.resume {
+  position:relative;
+  border: 0.1rem solid;
+  padding:2rem  2rem 0.5rem 2rem;
+  max-width: 800px;
+  margin-left:8%;
+  margin-right:8%;
+  margin-top:2rem;
+  margin-bottom:2rem;
+  border-radius: 0.5rem;
+}
+.resume-list {
+  list-style-type:none;
+  padding:0;
+}
+.resume-list-padding {
+  margin-bottom:1rem;
+}
+.resume-mini-padding {
+  margin-bottom:0.2rem;
+}
 
+.wrap-grid {
+  margin:0 auto;
+  display:inline-block;
+  width:100%;
+  vertical-align:top;
+  height:100%;
+}
+@media (min-width: 48em) {
+  .wrap-grid {
+    margin:0 auto;
+    display:inline-block;
+    width:49.5%;
+  }
+}
+.wrap-grid-right {
+  margin-left:0;
+}
+@media (min-width: 48em) {
+  .wrap-grid-right {
+    margin-left:0.5rem;
+  }
+}
+.wrap-grid-left {
+  margin-right:0;
+  margin-bottom:1rem;
+}
+@media (min-width: 48em) {
+  .wrap-grid-left {
+    margin-right:0.5rem;
+  }
+}
+.skills-label {
+  margin:0 auto;
+  display:inline-block;
+  width:100%;
+  margin-bottom:0.2rem;
+}
+@media (min-width: 48em) {
+  .skills-label {
+    margin:0 auto;
+    display:inline-block;
+    width:25%;
+    vertical-align:middle;
+    text-align:right;
+    padding-right:1rem;
+  }
+}
+.skills-tags {
+  margin:0 auto;
+  display:inline-block;
+  width:100%;
+}
+@media (min-width: 48em) {
+  .skills-tags {
+    margin:0 auto;
+    display:inline-block;
+    width:73%;
+    height:100%;
+    vertical-align:middle;
+  }
+}
+.resume-divider {
+  width:100%;
+  border: none;
+  height: 1px;
+  /* Set the hr color */
+  color: #333; /* old IE */
+  background-color: #333; /* Modern Browsers */
+}
+.resume-exp-blurb {
+  display: inline-block;
+  margin-right: 1px;
+  margin-bottom: 5px;
+  border: 1px solid;
+  border-radius: 1px;
+  padding: 4px 7px 1px 7px;
+  width:100%;
+}
 
 
 
