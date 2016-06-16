@@ -5,11 +5,16 @@
 
   <body class="theme-base-0g">
 
-    {% include sidebar.html %}
-
-    <div class="content container">
-      {{ content }}
-    </div>
+		{% if page.url != '/resume/' %}
+	    {% include sidebar.html %}
+	    <div class="content container">
+	      {{ content }}
+	    </div>
+	  {% else %}
+	  	<div class="resume container">
+	      {{ content }}
+	    </div>
+	  {% endif %}
 
   </body>
 </html>

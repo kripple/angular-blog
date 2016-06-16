@@ -1,0 +1,81 @@
+---
+layout: default
+title: Resume
+permalink: resume/
+---
+
+{% assign skills = "Angular,JavaScript,jQuery,AJAX,HTML5,CSS3,Bootstrap,Karma,Jasmine,D3 Data Visualization,Jekyll,Liquid Templating,Node,Ruby,Ruby on Rails,Sinatra,REST,RSpec,ActiveRecord,PostgreSQL,SQL,Git,Github,Agile,Gulp,Bash,Command Line" | split: ',' %}
+
+<ul class="resume-list">
+
+<li class="resume-title">Kelly Ripple</li>
+
+<li class="resume-subtitle resume-list-padding">Web Developer</li>
+
+<li class="resume-list-padding">
+	<div class="wrap-grid">
+		<div class="resume-section-title">Education</div>
+		<div class="wrap-grid-left">
+			<div class="resume-exp-blurb">
+				<div class="resume-date">May 2013</div>
+				<div class="exp-block">
+					B.S. Electrical Engineering<br>
+					University of Maryland,<br> College Park
+				</div>
+			</div>
+			<div class="resume-exp-blurb">
+				<div class="resume-date">Sept 2015</div>
+				<div class="exp-block">
+					Dev Bootcamp<br>
+					Web Development Intensive,<br> New York City
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="wrap-grid">
+		<div class="resume-section-title">Work Experience</div>
+		<div class="wrap-grid-right">
+			<div class="resume-exp-blurb">
+				<div class="resume-date">May 2012</div>
+				<div class="exp-block">
+					Systems Engineering Intern<br>
+					The SI Organization,<br> Chantilly, VA
+				</div>
+			</div>
+			<div class="resume-exp-blurb">
+				<div class="resume-date">July 2013</div>
+				<div class="exp-block">
+					Systems Engineering Associate<br>
+					Vencore, Multiple Locations
+				</div>
+			</div>
+			<div class="resume-exp-blurb">
+				<div class="resume-date">Oct 2014</div>
+				<div class="exp-block">
+					Embedded Software Engineer<br>
+					iVeia, Annapolis, MD
+				</div>
+			</div>
+			<div class="resume-exp-blurb">
+				<div class="resume-date">Jan 2016</div>
+				<div class="exp-block">
+					Software Engineer<br>
+					BTI360, Reston, VA
+				</div>
+		</div>
+	</div>
+</li>
+
+<li class="resume-list-padding">
+	<div class="resume-section-title">
+		Skills
+	</div>
+	<div class="skills-tags">
+		{% for tag in skills %}
+			<div class="skills-tag">{{ tag }}</div>
+		{% endfor %}
+	</div>
+</li>
+
+</ul>
+
