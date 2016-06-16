@@ -4,31 +4,17 @@ title: Resume
 permalink: resume/
 ---
 
-{% assign front-end = "Angular,JavaScript,jQuery,HTML5,CSS3,Bootstrap,Karma,Jasmine,D3 Data Visualization,Jekyll,Liquid Templating" | split: ',' %}
-
-{% assign back-end = "Node,Ruby,Ruby on Rails,Sinatra,REST,RSpec,ActiveRecord,PostgreSQL,SQL" | split: ',' %}
-
-{% assign methods = "Git,Github,Agile,Gulp,Bash,Command Line Interface" | split: ',' %}
+{% assign skills = "Angular,JavaScript,jQuery,AJAX,HTML5,CSS3,Bootstrap,Karma,Jasmine,D3 Data Visualization,Jekyll,Liquid Templating,Node,Ruby,Ruby on Rails,Sinatra,REST,RSpec,ActiveRecord,PostgreSQL,SQL,Git,Github,Agile,Gulp,Bash,Command Line" | split: ',' %}
 
 <ul class="resume-list">
 
-<li class="text-center resume-title">
-	<!-- <span class="resume-title"> -->Kelly Ripple<!-- </span> --><!-- <br> -->
-	<!-- <span class="resume-subtitle">Web Developer</span><br> -->
-	<!-- <span class="text-center">hello@kellyripple.com</span> -->
-</li>
+<li class="resume-title">Kelly Ripple</li>
 
-<li class="text-center resume-subtitle resume-list-padding">
-	<!-- <span class="resume-title">Kelly Ripple</span><br> -->
-	<!-- <span> -->Web Developer<!-- </span><br> -->
-	<!-- <span class="text-center">hello@kellyripple.com</span> -->
-</li>
-
-<div class="spacer"></div>
+<li class="resume-subtitle resume-list-padding">Web Developer</li>
 
 <li class="resume-list-padding">
 	<div class="wrap-grid">
-		<div class="text-center resume-mini-padding">Education</div>
+		<div class="resume-section-title">Education</div>
 		<div class="wrap-grid-left">
 			<div class="resume-exp-blurb">
 				<div class="resume-date">May 2013</div>
@@ -47,7 +33,7 @@ permalink: resume/
 		</div>
 	</div>
 	<div class="wrap-grid">
-		<div class="text-center resume-mini-padding">Work Experience</div>
+		<div class="resume-section-title">Work Experience</div>
 		<div class="wrap-grid-right">
 			<div class="resume-exp-blurb">
 				<div class="resume-date">May 2012</div>
@@ -81,41 +67,13 @@ permalink: resume/
 </li>
 
 <li class="resume-list-padding">
-	<div class="skills-label">
-		Frontend technologies:
+	<div class="resume-section-title">
+		Skills
 	</div>
 	<div class="skills-tags">
-		<div>
-			{% for tag in front-end %}
-				<div class="skills-tag">{{ tag }}</div>
-			{% endfor %}
-		</div>
-	</div>
-</li>
-
-<li class="resume-list-padding">
-	<div class="skills-label">
-		Backend technologies:
-	</div>
-	<div class="skills-tags">
-		<div>
-			{% for tag in back-end %}
-				<div class="skills-tag">{{ tag }}</div>
-			{% endfor %}
-		</div>
-	</div>
-</li>
-
-<li class="resume-list-padding">
-	<div class="skills-label">
-		Tools &amp; best practices:
-	</div>
-	<div class="skills-tags">
-		<div>
-			{% for tag in methods %}
-				<div class="skills-tag">{{ tag }}</div>
-			{% endfor %}
-		</div>
+		{% for tag in skills %}
+			<div class="skills-tag">{{ tag }}</div>
+		{% endfor %}
 	</div>
 </li>
 

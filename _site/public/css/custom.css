@@ -122,9 +122,15 @@ iframe {
   width:17rem;
   display:block;
   margin-bottom:0.2rem;
+  text-align: center;
 }
 .resume-subtitle {
   font-size: 1.25rem;
+  text-align: center;
+}
+.resume-section-title {
+  text-align: center;
+  margin-bottom:1rem;
 }
 .resume {
   position:relative;
@@ -184,37 +190,12 @@ iframe {
     margin-right:0.5rem;
   }
 }
-.skills-label {
-  margin:0 auto;
-  display:inline-block;
-  width:100%;
-  margin-bottom:0.2rem;
-  font-size:0.9rem;
-}
-@media (min-width: 48em) {
-  .skills-label {
-    margin:0 auto;
-    display:inline-block;
-    width:25%;
-    vertical-align:middle;
-    text-align:right;
-    padding-right:1rem;
-  }
-}
 .skills-tags {
   margin:0 auto;
   display:inline-block;
   width:100%;
   font-size:0.9rem;
-}
-@media (min-width: 48em) {
-  .skills-tags {
-    margin:0 auto;
-    display:inline-block;
-    width:73%;
-    height:100%;
-    vertical-align:middle;
-  }
+  text-align:justify;
 }
 .resume-divider {
   width:100%;
@@ -250,6 +231,7 @@ iframe {
   display:inline-block;
   vertical-align: middle;
 }
+
 
 
 
