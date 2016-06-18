@@ -214,7 +214,7 @@ var display_gallows = function(num) {
 		$("pre").append("   |      / \\\n");
 		$("pre").append("  _|___\n");
         break;
-	};
+	}
 };
 
 // NEW GAME 
