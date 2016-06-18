@@ -1,11 +1,90 @@
-<!DOCTYPE html><html lang="en-us"><head><link href="http://gmpg.org/xfn/11" rel="profile"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"><title>Let's Get Classy</title><link rel="stylesheet" href="/public/css/syntax.css"><link rel="stylesheet" href="/public/css/poole.css"><link rel="stylesheet" href="/public/css/hyde.css"><link rel="stylesheet" href="/public/css/custom.css"><link href="https://fonts.googleapis.com/css?family=Karma:400,400italic,700|Righteous" rel="stylesheet" type="text/css"><link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png"><link rel="shortcut icon" href="/public/imgs/favicon.ico"><link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml"><script>
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Let's Get Classy 
+    
+  </title>
+
+  <!-- CSS -->
+  <!-- <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="/public/css/custom.css"> -->
+  <link rel="stylesheet" href="/public/css/style.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Karma:400,400italic,700|Righteous' rel='stylesheet' type='text/css'>
+
+  <!-- JS -->
+  <script src="/public/js/analytics.js"></script>
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/public/imgs/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Google Analytics -->
+ <!--  <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
   ga('create', 'UA-66654464-1', 'auto');
   ga('send', 'pageview');
-  </script></head><body class="theme-base-0g"><div class="sidebar"><div class="container sidebar-sticky"><div class="sidebar-about"><h1><a href="/">Kelly Ripple</a></h1><p class="lead">Software Engineer</p></div><nav class="sidebar-nav"><a class="sidebar-nav-item" href="/">About</a> <a class="sidebar-nav-item" href="/projects">Projects</a> <a class="sidebar-nav-item" href="/blog">Blog</a></nav><p>&copy; 2016. Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>&amp;<a href="https://github.com/poole/hyde" target="_blank">Hyde</a>.</p></div></div><div class="content container"><div class="post"><h1 class="post-title">Let's Get Classy</h1><span class="post-date">June 21, 2015 &middot; <span class="reading-time" title="Estimated read time">4 Minute Read</span></span><section><p>I learned how to use a new Ruby 'thing' this week: Classes. To be completely honest with you, I don't completely understand what's going on with the Ruby 'class' object, but I've been using it, and I think I can do a reasonably competent job explaining the basics. Also this week, I learned some new tricks for arrays and hashes. Check them out at the end of my <a href="http://kripple.github.io/hashtastic">post from a few weeks ago.</a> On to classes! I'm going to jump right in with a simple example:</p></section><section><h2>Really Simple Example</h2><div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">SimpleClass</span> 
+  </script> -->
+</head>
+
+  <body class="theme-base-0g">
+
+		
+	    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="/">
+          Kelly Ripple
+        </a>
+      </h1>
+      <p class="lead">Software Engineer</p>
+    </div>
+    
+    
+
+    
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item" href="/">About</a>
+      <a class="sidebar-nav-item" href="/projects">Projects</a>
+      <a class="sidebar-nav-item" href="/blog">Blog</a>
+    </nav>
+
+    <p>&copy; 2016. Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>&amp;<a href="https://github.com/poole/hyde" target="_blank">Hyde</a>.</p>
+  </div>
+</div>
+
+	    <div class="content container">
+	      <div class="post">
+  <h1 class="post-title">Let's Get Classy</h1>
+  <span class="post-date">June 21, 2015 &middot; <span class="reading-time" title="Estimated read time">
+	4 Minute Read
+</span></span>
+  <section>
+  <p>I learned how to use a new Ruby 'thing' this week: Classes. To be completely honest with you, I don't completely understand what's going on with the Ruby 'class' object, but I've been using it, and I think I can do a reasonably competent job explaining the basics. Also this week, I learned some new tricks for arrays and hashes. Check them out at the end of my <a href="http://kripple.github.io/hashtastic">post from a few weeks ago.</a> On to classes! I'm going to jump right in with a simple example:</p>
+</section>
+
+<section>
+  <h2>Really Simple Example</h2>
+  <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">SimpleClass</span> 
   <span class="k">def</span> <span class="nf">initialize</span> 
     <span class="c1"># code</span>
   <span class="k">end</span>
@@ -13,7 +92,26 @@
   <span class="k">def</span> <span class="nf">example_method</span>
     <span class="c1"># code</span>
   <span class="k">end</span>
-<span class="k">end</span></code></pre></div></section><section><p>This is a class! Calling <code>SimpleClass.new</code> will create a new instance of SimpleClass. It won't do anything, but it will exist!</p><p>The first time I searched "simple Ruby class example" I was horribly dissapointed, and could not seem to find anything that just 'made sense'. I didn't know what instance varibles were, so I was frustrated everytime I saw an "@" symbol. You can't do much without varibles, so here's some information on how to use variables with classes:</p></section><section><h2>Define</h2><p>Instance Variables - Variables defined inside the class definition. By convention, the first character of an instance variable is always the "@" symbol. Instance variables 'exist' separately for each instance of the class, and do not exist outside the class instance.</p><p>Instance Methods - Methods inside class definitions are called 'instance methods'. They'll only work on the class they're defined in. It's possible to call methods from within a class definition (example below).</p><p>Attribute Methods - Use these to read or write to instance variables outside of the class definition. I don't have a whole lot of experience with them, but I'll provide a short demo below (after 'Better Example'). Currently, my favorite way to access instance variables outside class definitions is with <code>class_instance.instance_variable_get(:@instance_variable)</code></p><p>Here's a better example to illustrate some of this:</p></section><section><h2>Better Example</h2><div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">ClassName</span> <span class="c1"># =&gt; Use CamelCase for class names</span>
+<span class="k">end</span></code></pre></div>
+</section>
+
+<section>
+  <p>This is a class! Calling <code>SimpleClass.new</code> will create a new instance of SimpleClass. It won't do anything, but it will exist!</p>
+
+  <p>The first time I searched "simple Ruby class example" I was horribly dissapointed, and could not seem to find anything that just 'made sense'. I didn't know what instance varibles were, so I was frustrated everytime I saw an "@" symbol. You can't do much without varibles, so here's some information on how to use variables with classes:</p>
+</section>
+
+<section>
+<h2>Define</h2>
+  <p>Instance Variables - Variables defined inside the class definition. By convention, the first character of an instance variable is always the "@" symbol. Instance variables 'exist' separately for each instance of the class, and do not exist outside the class instance.</p>
+  <p>Instance Methods - Methods inside class definitions are called 'instance methods'. They'll only work on the class they're defined in. It's possible to call methods from within a class definition (example below).</p>
+  <p>Attribute Methods - Use these to read or write to instance variables outside of the class definition. I don't have a whole lot of experience with them, but I'll provide a short demo below (after 'Better Example'). Currently, my favorite way to access instance variables outside class definitions is with <code>class_instance.instance_variable_get(:@instance_variable)</code></p>
+  <p>Here's a better example to illustrate some of this:</p>
+</section>
+
+<section>
+  <h2>Better Example</h2>
+  <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">ClassName</span> <span class="c1"># =&gt; Use CamelCase for class names</span>
   <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span> <span class="c1"># =&gt; ClassName.new calls this method</span>
     <span class="vi">@instance_variable</span> <span class="o">=</span> <span class="n">variable</span>
   <span class="k">end</span>
@@ -25,9 +123,16 @@
   <span class="k">def</span> <span class="nf">second_instance_method</span> 
     <span class="nb">puts</span> <span class="vi">@instance_variable</span> <span class="c1"># =&gt; prints random_integer</span>
   <span class="k">end</span>
-<span class="k">end</span></code></pre></div><div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">random_integer</span> <span class="o">=</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="nf">.</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># =&gt; Random integer from 0 - 100</span>
+<span class="k">end</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">random_integer</span> <span class="o">=</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="nf">.</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># =&gt; Random integer from 0 - 100</span>
 <span class="n">new_instance</span> <span class="o">=</span> <span class="no">ClassName</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">random_integer</span><span class="p">)</span> 
-<span class="n">new_instance</span><span class="p">.</span><span class="nf">first_instance_method</span> <span class="c1"># =&gt; prints random_integer</span></code></pre></div></section><section><h2>Demo (attribute methods)</h2><div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">IllustrateAttributes</span>
+<span class="n">new_instance</span><span class="p">.</span><span class="nf">first_instance_method</span> <span class="c1"># =&gt; prints random_integer</span></code></pre></div>
+</section>
+
+<section>
+<h2>Demo (attribute methods)</h2> 
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">IllustrateAttributes</span>
   <span class="kp">attr_reader</span> <span class="ss">:read_me</span>
   <span class="kp">attr_writer</span> <span class="ss">:write_me</span>
   <span class="kp">attr_accessor</span> <span class="ss">:read_or_write</span>
@@ -37,7 +142,9 @@
     <span class="vi">@write_me</span> <span class="o">=</span> <span class="n">write</span>
     <span class="vi">@read_or_write</span> <span class="o">=</span> <span class="n">both</span>
   <span class="k">end</span>
-<span class="k">end</span></code></pre></div><div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">new_instance</span> <span class="o">=</span> <span class="no">IllustrateAttributes</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Read me"</span><span class="p">,</span><span class="s2">"Change me"</span><span class="p">,</span><span class="s2">"Do both/either"</span><span class="p">)</span>
+<span class="k">end</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">new_instance</span> <span class="o">=</span> <span class="no">IllustrateAttributes</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Read me"</span><span class="p">,</span><span class="s2">"Change me"</span><span class="p">,</span><span class="s2">"Do both/either"</span><span class="p">)</span>
 
 <span class="nb">puts</span> <span class="n">new_instance</span><span class="p">.</span><span class="nf">read_me</span> <span class="c1"># =&gt; prints "Read me"</span>
 <span class="nb">puts</span> <span class="n">new_instance</span><span class="p">.</span><span class="nf">write_me</span> <span class="c1"># =&gt; doesn't work</span>
@@ -47,4 +154,175 @@
 <span class="n">new_instance</span><span class="p">.</span><span class="nf">read_or_write</span> <span class="o">=</span> <span class="s2">"Edited!"</span>
 
 <span class="nb">puts</span> <span class="n">new_instance</span><span class="p">.</span><span class="nf">read_or_write</span> <span class="c1"># =&gt; prints "Edited!"</span>
-<span class="n">new_instance</span><span class="p">.</span><span class="nf">instance_variable_get</span><span class="p">(</span><span class="ss">:@write_me</span><span class="p">)</span> <span class="c1"># =&gt; "Kelly was here."</span></code></pre></div><p>The reason there are read and write options (and they're not all just 'accessors') is to prevent strange errors from happening. For example, if you were storing a credit card number, you would never want to change that number, and if you were storing a pin number or password, you would never want to read it (probably).</p></section></div><div class="related"><h2>Related Posts</h2><ul class="related-posts"><li><h3><a href="/godaddy-github-pages">GoDaddy + Github Pages <small>July 23, 2015</small></a></h3></li><li><h3><a href="/how-the-internet-works">How the Internet Works <small>July 13, 2015</small></a></h3></li><li><h3><a href="/ruby-vs-javascript">Ruby vs. JavaScript <small>July 12, 2015</small></a></h3></li><li><h3><a href="/ruby-building-blocks">Ruby Building Blocks <small>June 22, 2015</small></a></h3></li><li><h3><a href="/method-map">Method&#58; Map <small>June 14, 2015</small></a></h3></li><li><h3><a href="/hashtastic">Hash-tastic <small>June 8, 2015</small></a></h3></li><li><h3><a href="/css-madness">CSS Madness <small>May 30, 2015</small></a></h3></li><li><h3><a href="/git-vs-github">Git vs. Github <small>May 24, 2015</small></a></h3></li></ul></div></div></body></html>
+<span class="n">new_instance</span><span class="p">.</span><span class="nf">instance_variable_get</span><span class="p">(</span><span class="ss">:@write_me</span><span class="p">)</span> <span class="c1"># =&gt; "Kelly was here."</span></code></pre></div>
+
+<p>The reason there are read and write options (and they're not all just 'accessors') is to prevent strange errors from happening. For example, if you were storing a credit card number, you would never want to change that number, and if you were storing a pin number or password, you would never want to read it (probably).</p>
+</section> 
+</div>
+
+
+
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+        
+          <li>
+            <h3>
+              <a href="/godaddy-github-pages">
+                GoDaddy + Github Pages
+                <small>July 23, 2015</small>
+              </a>
+            </h3>
+          </li>
+        
+      
+    
+      
+    
+      
+        
+        
+          <li>
+            <h3>
+              <a href="/how-the-internet-works">
+                How the Internet Works
+                <small>July 13, 2015</small>
+              </a>
+            </h3>
+          </li>
+        
+      
+    
+      
+    
+      
+        
+        
+          <li>
+            <h3>
+              <a href="/ruby-vs-javascript">
+                Ruby vs. JavaScript
+                <small>July 12, 2015</small>
+              </a>
+            </h3>
+          </li>
+        
+      
+    
+      
+    
+      
+    
+      
+        
+        
+          <li>
+            <h3>
+              <a href="/ruby-building-blocks">
+                Ruby Building Blocks
+                <small>June 22, 2015</small>
+              </a>
+            </h3>
+          </li>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+        
+          <li>
+            <h3>
+              <a href="/method-map">
+                Method&#58; Map
+                <small>June 14, 2015</small>
+              </a>
+            </h3>
+          </li>
+        
+      
+    
+      
+    
+      
+        
+        
+          <li>
+            <h3>
+              <a href="/hashtastic">
+                Hash-tastic
+                <small>June 8, 2015</small>
+              </a>
+            </h3>
+          </li>
+        
+      
+    
+      
+        
+        
+          <li>
+            <h3>
+              <a href="/css-madness">
+                CSS Madness
+                <small>May 30, 2015</small>
+              </a>
+            </h3>
+          </li>
+        
+      
+    
+      
+    
+      
+        
+        
+          <li>
+            <h3>
+              <a href="/git-vs-github">
+                Git vs. Github
+                <small>May 24, 2015</small>
+              </a>
+            </h3>
+          </li>
+        
+      
+    
+  </ul>
+</div>
+
+
+
+
+	    </div>
+	  
+
+  </body>
+</html>
