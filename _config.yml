@@ -22,3 +22,6 @@ version:          2.1.0
 github:
   repo:           https://github.com/kripple/kripple.github.io
 
+# Speed up build time
+exclude:          [node_modules]
+

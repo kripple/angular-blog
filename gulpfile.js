@@ -4,6 +4,7 @@ var debug = require('gulp-debug');
 var rename = require('gulp-rename');
 var sourcemaps = require('gulp-sourcemaps');
 var minifyHtml = require('gulp-minify-html');
+var concat = require('gulp-concat');
 var concatCss = require('gulp-concat-css');
 var autoprefixer = require('gulp-autoprefixer');
 var uncss = require('gulp-uncss');
@@ -12,6 +13,7 @@ var minifyImg = require('gulp-imagemin');
 var download = require('gulp-download');
 var eslint = require('gulp-eslint');
 var changed = require('gulp-changed');
+var uglify = require('gulp-uglify');
 
 var jekyllSourcePath = 'index.html';
 var htmlSource = '_site/**/*.html';
@@ -24,16 +26,18 @@ var minCssPath = 'style.min.css';
 var jsSource = '@(public|projects)/**/*.js';
 var jsPath = '_site/public/js/';
 var jsSourcePath = 'public/js/';
+var jsBundlePath = '_site/public/js/bundle.js';
+var minJsPath = 'scripts.min.js';
 var imgSource = 'public/imgs/**/*';
 var imgPath = '_site/';
 
 
-gulp.task('default', ['jekyll','html','css','images','analytics']);
+gulp.task('default', ['jekyll','html','css','js','images','analytics']);
 
 
 gulp.task('jekyll', function() {
   return gulp.src(jekyllSourcePath, { read: false })
-  	.pipe(debug({title: 'jekyll build:'}))
+  	// .pipe(debug({title: 'jekyll build:'}))
     .pipe(shell([
       'jekyll build'
   ]));
@@ -81,14 +85,17 @@ gulp.task('analytics', ['jekyll'], function() {
 		// .pipe(debug({title: 'Retreive newest analytics:',minimal:false}))
     .pipe(gulp.dest(jsPath));
 });
-
-// // JS - add browserfy & uglify
-// gulp.task('js', function () {
-//   return gulp.src(jsSource)
-//   	.pipe(debug({title: 'js optimization:',minimal:false}))
-//   	.pipe(sourcemaps.init())
-//     .pipe(gulp.dest(jsPath));
-// });
+ 
+gulp.task('js', ['jekyll'], function() {
+  return gulp.src(jsSource)
+  	// .pipe(debug({title: 'js optimization:',minimal:false}))
+  	.pipe(sourcemaps.init())
+  	.pipe(concat(jsBundlePath))
+    .pipe(uglify())
+    .pipe(rename(minJsPath))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest(jsPath));
+});
 
 gulp.task('lint', function () {
   return gulp.src(jsSource)
