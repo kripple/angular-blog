@@ -1,43 +1,36 @@
 var gulp = require('gulp');
 var shell = require('gulp-shell');
-var debug = require('gulp-debug');
-var rename = require('gulp-rename');
-var sourcemaps = require('gulp-sourcemaps');
-var minifyHtml = require('gulp-minify-html');
-var concat = require('gulp-concat');
-var concatCss = require('gulp-concat-css');
+var minifyHtml = require('gulp-htmlmin');
 var autoprefixer = require('gulp-autoprefixer');
-var uncss = require('gulp-uncss');
 var minifyCss = require('gulp-clean-css');
+var concat = require('gulp-concat');
+var rename = require('gulp-rename');
+var concatCss = require('gulp-concat-css');
 var minifyImg = require('gulp-imagemin');
 var download = require('gulp-download');
-var eslint = require('gulp-eslint');
-var changed = require('gulp-changed');
-var uglify = require('gulp-uglify');
 
-var jekyllSourcePath = 'index.html';
+var originPath = '_site/';
+var destinationPath = '../blog-src/';
+
 var htmlSource = '_site/**/*.html';
-var htmlPath = '_site/';
-var minHtmlPath = 'main.min.html';
-var cssSource = '@(public|projects)/**/*.css';
-var cssPath = '_site/public/css/';
-var cssBundlePath = '_site/public/css/bundle.css';
-var minCssPath = 'style.min.css';
-var jsSource = '@(public|projects)/**/*.js';
-var jsPath = '_site/public/js/';
-var jsSourcePath = 'public/js/';
-var jsBundlePath = '_site/public/js/bundle.js';
-var minJsPath = 'scripts.min.js';
+var cssSource = 'public/**/*.css';
 var imgSource = 'public/imgs/**/*';
-var imgPath = '_site/';
+
+var htmlReadPath = originPath;
+var cssReadPath = originPath + 'public/css/';
+var imgReadPath = originPath +'public/imgs/';
+
+var htmlWritePath = destinationPath;
+var cssWritePath = destinationPath + 'public/css/';
+var imgWritePath = destinationPath + 'public/imgs/';
+var jsWritePath = destinationPath + 'public/js/'
 
 
-gulp.task('default', ['jekyll','html','css','js','images','analytics']);
+gulp.task('default', ['jekyll','html','css','images','analytics']);
 
 
 gulp.task('jekyll', function() {
-  return gulp.src(jekyllSourcePath, { read: false })
-  	// .pipe(debug({title: 'jekyll build:'}))
+  return gulp.src('index.html', { read: false })
     .pipe(shell([
       'jekyll build'
   ]));
@@ -45,75 +38,37 @@ gulp.task('jekyll', function() {
 
 gulp.task('html', ['jekyll'], function() {
   return gulp.src(htmlSource)
-  	// .pipe(debug({title: 'html optimization: '}))
-  	.pipe(changed(htmlPath))
-  	.pipe(sourcemaps.init())
     .pipe(minifyHtml({
-        quotes: true
+      collapseWhitespace: true,
+      sortAttributes: true,
+      sortClassName: true,
+      removeComments: true
     }))
-    .pipe(rename(minHtmlPath))
-		.pipe(sourcemaps.write())
-    .pipe(gulp.dest(htmlPath));
+    .pipe(gulp.dest(htmlWritePath));
 });
 
 gulp.task('css', ['jekyll'], function() {
   return gulp.src(cssSource)
-		// .pipe(debug({title: 'css optimization:',minimal:false}))
-		.pipe(changed(cssPath))
-		.pipe(sourcemaps.init())
-		.pipe(uncss({html:htmlSource}))
-		.pipe(autoprefixer())
-		.pipe(concatCss(cssBundlePath))
-		.pipe(minifyCss({keepBreaks:false}))
-		.pipe(rename(minCssPath))
-		.pipe(sourcemaps.write())
-		.pipe(gulp.dest(cssPath));
+    .pipe(autoprefixer())
+    .pipe(concatCss(cssWritePath))
+    .pipe(rename('style.min.css'))
+    .pipe(minifyCss({keepBreaks:false}))
+    .pipe(gulp.dest(cssWritePath));
 });
 
 gulp.task('images', ['jekyll'], function () {
   return gulp.src(imgSource)
-    // .pipe(debug({title: 'image optimization:',minimal:false}))
-    .pipe(changed(imgPath))
-  	.pipe(sourcemaps.init())
     .pipe(minifyImg())
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest(imgPath));
+    .pipe(gulp.dest(imgWritePath));
 });
 
 gulp.task('analytics', ['jekyll'], function() {
   return download('https://www.google-analytics.com/analytics.js')
-		// .pipe(debug({title: 'Retreive newest analytics:',minimal:false}))
-    .pipe(gulp.dest(jsPath));
+    .pipe(gulp.dest(jsWritePath));
 });
+
+
+
  
-gulp.task('js', ['jekyll'], function() {
-  return gulp.src(jsSource)
-  	// .pipe(debug({title: 'js optimization:',minimal:false}))
-  	.pipe(sourcemaps.init())
-  	.pipe(concat(jsBundlePath))
-    .pipe(uglify())
-    .pipe(rename(minJsPath))
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest(jsPath));
-});
 
-gulp.task('lint', function () {
-  return gulp.src(jsSource)
-  	// .pipe(debug({title: 'Lint JS:',minimal:false}))
-  	.pipe(changed(jsSourcePath))
-    .pipe(eslint())
-    // Alternatively use eslint.formatEach() (see Docs). 
-    .pipe(eslint.format())
-    .pipe(eslint.failOnError());
-});
-
-gulp.task('watch', function() {
-  gulp.watch(jsSource, ['lint']);
-});
-
-// RSync
-
-// SEO
-
-// Caching ???
 

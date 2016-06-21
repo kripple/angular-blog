@@ -25,3 +25,6 @@ github:
 # Speed up build time
 exclude:          [node_modules]
 
+# Build to external repo
+# destination: ../blog-src/
+
