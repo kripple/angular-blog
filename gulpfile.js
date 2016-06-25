@@ -27,6 +27,8 @@ var clean         = '~/repos/blog-src/*';
 // only do img, html, css if changed
 // ???
 
+// FIXME issue with hangman css - 'New Game' button too close to input box. Clicking on 'New Game' puts it where it's supposed to be
+
 
 gulp.task('dev-build', function(done) {
   return gulp.src('index.html', { read: false })
