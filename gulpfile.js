@@ -36,7 +36,7 @@ var clean         = '~/repos/blog-src/*';
 gulp.task('dev-build', function(done) {
   return gulp.src('index.html', { read: false })
     .pipe(shell([
-      'jekyll build --config _config.yml,_config_dev.yml'
+      'bundle exec jekyll build --config _config.yml,_config_dev.yml'
   ]));
   done();
 });
@@ -44,7 +44,7 @@ gulp.task('dev-build', function(done) {
 gulp.task('prod-build', function(done) {
   return gulp.src('index.html', { read: false })
     .pipe(shell([
-      'jekyll build --config _config.yml'
+      'bundle exec jekyll build --config _config.yml'
   ]));
   done();
 });
