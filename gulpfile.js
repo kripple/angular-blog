@@ -14,20 +14,17 @@ var htmlSource    = '_site/**/*.html';
 var cssSource     = 'public/css/*.css';
 var imgSource     = 'public/imgs/*';
 
-var destination   = '../blog-src/';
+var clean         = '~/repos/kripple.github.io/*';
+
+var destination   = '../kripple.github.io/';
 var htmlWrite     = destination;
 var cssWrite      = destination + 'public/css/';
 var imgWrite      = destination + 'public/imgs/';
 var jsWrite       = destination + 'public/js/';
-var clean         = '~/repos/blog-src/*';
 
 // todo:
-// optimize font loading
-// seo stuff
-// only do img, html, css if changed
-// ???
-
-// FIXME issue with hangman css - 'New Game' button too close to input box. Clicking on 'New Game' puts it where it's supposed to be
+// 1. optimize font & image loading
+// 2. seo task
 
 
 gulp.task('dev-build', function(done) {
