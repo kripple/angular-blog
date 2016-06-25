@@ -29,24 +29,26 @@ var clean         = '~/repos/blog-src/*';
 
 
 // FIXME jekyll needs more stuff to format properly - some kind of deployment process is missing
+// check if development or production environment
 
-gulp.task('default', ['jekyll','html','css','images','analytics']);
 
-gulp.task('clean', function() {
-  return gulp.src(destination, { read: false })
-    .pipe(shell([
-      ( 'rm -r ' + clean )
-  ]));
-});
-
-gulp.task('jekyll', function() {
+gulp.task('dev-build', function(done) {
   return gulp.src('index.html', { read: false })
     .pipe(shell([
-      'JEKYLL_ENV=production jekyll build'
+      'jekyll build --config _config.yml,_config_dev.yml'
   ]));
+  done();
 });
 
-gulp.task('html', ['jekyll'], function() {
+gulp.task('prod-build', function(done) {
+  return gulp.src('index.html', { read: false })
+    .pipe(shell([
+      'jekyll build --config _config.yml'
+  ]));
+  done();
+});
+
+gulp.task('html', function(done) {
   return gulp.src(htmlSource)
     .pipe(minifyHtml({
       collapseWhitespace: true,
@@ -55,27 +57,53 @@ gulp.task('html', ['jekyll'], function() {
       removeComments: true
     }))
     .pipe(gulp.dest(htmlWrite));
+  done();
 });
 
-gulp.task('css', ['jekyll'], function() {
+gulp.task('css', function(done) {
   return gulp.src(cssSource)
     .pipe(autoprefixer())
     .pipe(concatCss(cssWrite))
     .pipe(rename('style.min.css'))
     .pipe(minifyCss())
     .pipe(gulp.dest(cssWrite));
+  done();
 });
 
-gulp.task('images', ['jekyll'], function () {
+gulp.task('images', function () {
   return gulp.src(imgSource)
     .pipe(minifyImg())
     .pipe(gulp.dest(imgWrite));
+  done();
 });
 
-gulp.task('analytics', ['jekyll'], function() {
+gulp.task('analytics', function(done) {
   return download('https://www.google-analytics.com/analytics.js')
     .pipe(gulp.dest(jsWrite));
+  done();
 });
+
+gulp.task('clean', function(done) {
+  return gulp.src(destination, { read: false })
+    .pipe(shell([
+      ( 'rm -r ' + clean )
+  ]));
+  done();
+});
+
+gulp.task('default', gulp.series('dev-build','html','css','images','analytics', function(done) {
+  done();
+}));
+
+gulp.task('prod', gulp.series('clean','prod-build','html','css',/*'images',*/'analytics', function(done) {
+  done();
+}));
+
+
+
+
+
+
 
 
 

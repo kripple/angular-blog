@@ -22,9 +22,10 @@ version:          2.1.0
 github:
   repo:           https://github.com/kripple/kripple.github.io
 
-# Speed up build time
-exclude:          [node_modules]
+environment:      production
 
-# Build to external repo
-# destination: ../blog-src/
+# Speed up build time
+exclude:          [node_modules,gulpfile.js,package.json,Gemfile]
+
+
 
