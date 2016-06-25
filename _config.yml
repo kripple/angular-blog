@@ -24,7 +24,6 @@ github:
 
 environment:      production
 
-# Speed up build time
 exclude:          [node_modules,gulpfile.js,package.json,Gemfile]
 
 

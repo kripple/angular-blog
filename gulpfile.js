@@ -27,11 +27,6 @@ var clean         = '~/repos/blog-src/*';
 // only do img, html, css if changed
 // ???
 
-// !!!! try deploying to a github projects page to test if formatting works once deployed
-
-// FIXME jekyll needs more stuff to format properly - some kind of deployment process is missing
-// check if development or production environment
-
 
 gulp.task('dev-build', function(done) {
   return gulp.src('index.html', { read: false })
@@ -96,7 +91,7 @@ gulp.task('default', gulp.series('dev-build','html','css','images','analytics', 
   done();
 }));
 
-gulp.task('prod', gulp.series('prod-build','html','css',/*'images',*/'analytics', function(done) {
+gulp.task('prod', gulp.series('prod-build','html','css','images','analytics', function(done) {
   done();
 }));
 
