@@ -36,8 +36,7 @@
 
   <body class="theme-base-0g">
 
-		
-	    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
      styles, `#sidebar-checkbox` for behavior. -->
 <input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
 
@@ -84,12 +83,27 @@
     </p>
   </div>
 </div>
-	    <div class="content container">
-	      <div class="page">
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="//" title="Home">Kelly Ripple</a>
+            <small></small>
+          </h3>
+        </div>
+      </div>
+
+      
+      	<div class="container content">
+	  	
+        <div class="page">
   <h1 class="page-title">About</h1>
   <span class="subheading">Electrical Engineer &rarr; Web Developer.</span>
 
-<p>developmentKelly Ripple is a Software Engineer living and working in Northern Virginia. Originally from Maryland, she pursued her passion for technology by getting a degree in Electrical Engineering from <a href="http://www.umd.edu/" target="_blank">The University of Maryland</a>. After a few years in unfulfilling jobs she decided she wanted a career in web development, and attended <a href="http://devbootcamp.com/" target="_blank">Dev Bootcamp</a> in NYC to make that happen. She currently works on the front end in Angular.js at <a href="https://www.bti360.com/">BTI360</a>. Check out her current and past projects <a href="/projects">here</a>.</p>
+<p>Kelly Ripple is a Software Engineer living and working in Northern Virginia. Originally from Maryland, she pursued her passion for technology by getting a degree in Electrical Engineering from <a href="http://www.umd.edu/" target="_blank">The University of Maryland</a>. After a few years in unfulfilling jobs she decided she wanted a career in web development, and attended <a href="http://devbootcamp.com/" target="_blank">Dev Bootcamp</a> in NYC to make that happen. She currently works on the front end in Angular.js at <a href="https://www.bti360.com/">BTI360</a>. Check out her current and past projects <a href="/projects">here</a>.</p>
 
 <p>
 	<a href="https://twitter.com/krippleffect" target="_blank">Twitter</a> 
@@ -105,8 +119,24 @@
 <img id="headshot" src="/public/imgs/headshot.png">
 
 </div>
-	    </div>
-	  
+      </div>
+    </div>
 
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
   </body>
 </html>
