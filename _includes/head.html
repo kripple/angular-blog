@@ -15,12 +15,20 @@
   </title>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/public/css/style.min.css">
+  {% if site.environment == "development" %}
+    <link rel="stylesheet" href="/public/css/custom.css">
+    <link rel="stylesheet" href="/public/css/template.css">
+    <link rel="stylesheet" href="/public/css/syntax.css">
+  {% else %}
+    <link rel="stylesheet" href="/public/css/style.min.css">
+  {% endif %}
   <link href='https://fonts.googleapis.com/css?family=Karma:400,400italic,700|Righteous' rel='stylesheet' type='text/css'>
 
   <!-- JS -->
-  <script src="/public/js/analytics.js"></script>
-
+  {% if site.environment == "production" %}
+    <script src="/public/js/analytics.js"></script>
+  {% endif %}
+  
   <!-- Icons -->
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ site.baseurl }}public/apple-touch-icon-144-precomposed.png">
   <link rel="shortcut icon" href="{{ site.baseurl }}public/imgs/favicon.ico">

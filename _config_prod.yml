@@ -22,6 +22,9 @@ version:          2.1.0
 github:
   repo:           https://github.com/kripple/kripple.github.io
 
-environment:      development
+environment:      production
 
 exclude:          [node_modules,gulpfile.js,package.json,Gemfile]
+
+
+

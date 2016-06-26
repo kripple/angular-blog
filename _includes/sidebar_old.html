@@ -1,0 +1,28 @@
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="{{ site.baseurl }}">
+          {{ site.title }}
+        </a>
+      </h1>
+      <p class="lead">{{ site.description }}</p>
+    </div>
+    
+    {% if page.url == '/index.html' %}
+      {% assign home = true %}
+    {% endif %}
+
+    {% if page.url == '/' %}
+        {% assign home = true %}
+    {% endif %}
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item{% if home %} active{% endif %}" href="/">About</a>
+      <a class="sidebar-nav-item{% if page.url == '/projects/' %} active{% endif %}" href="/projects">Projects</a>
+      <a class="sidebar-nav-item{% if page.url == '/blog/' %} active{% endif %}" href="/blog">Blog</a>
+    </nav>
+
+    <p>&copy; {{ site.time | date: '%Y' }}. Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>&amp;<a href="https://github.com/poole/hyde" target="_blank">Hyde</a>.</p>
+  </div>
+</div>

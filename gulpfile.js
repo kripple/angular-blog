@@ -22,6 +22,9 @@ var cssWrite      = destination + 'public/css/';
 var imgWrite      = destination + 'public/imgs/';
 var jsWrite       = destination + 'public/js/';
 
+var devConfig     = '_config.yml';
+var prodConfig    = '_config_prod.yml';
+
 // todo:
 // 1. optimize font & image loading
 // 2. seo task
@@ -30,7 +33,7 @@ var jsWrite       = destination + 'public/js/';
 gulp.task('dev-build', function(done) {
   return gulp.src('index.html', { read: false })
     .pipe(shell([
-      'bundle exec jekyll build --config _config.yml,_config_dev.yml'
+      ( 'bundle exec jekyll build --config ' + devConfig )
   ]));
   done();
 });
@@ -38,7 +41,7 @@ gulp.task('dev-build', function(done) {
 gulp.task('prod-build', function(done) {
   return gulp.src('index.html', { read: false })
     .pipe(shell([
-      'bundle exec jekyll build --config _config.yml'
+      ( 'bundle exec jekyll build --config ' + prodConfig )
   ]));
   done();
 });
