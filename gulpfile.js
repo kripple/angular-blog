@@ -1,5 +1,3 @@
-/* global require */
-
 var gulp          = require('gulp');
 var shell         = require('gulp-shell');
 var minifyHtml    = require('gulp-htmlmin');
@@ -13,11 +11,12 @@ var request       = require('request');
 var sitemap       = require('gulp-sitemap');
 var eslint        = require('gulp-eslint');
 var execSync      = require('child_process').execSync;
+var gutil          = require('gulp-util');
 
 var htmlSource    = '_site/**/*.html';
 var cssSource     = 'public/css/*.css';
 var imgSource     = 'public/imgs/*';
-var jsSource      = ['_site/**/*.js','!node_modules/**']; 
+var jsSource      = ['_site/**/*.js','!node_modules/**','./gulpfile.js']; 
 
 var clean         = '~/repos/kripple.github.io/*';
 
@@ -37,23 +36,21 @@ var url           = 'http://kellyripple.com';
 // 2. seo task
 
 
-gulp.task('dev-build', function(done) {
+gulp.task('dev-build', function() {
   return gulp.src('index.html', { read: false })
     .pipe(shell([
       ( 'bundle exec jekyll build --config ' + devConfig )
   ]));
-  done();
 });
 
-gulp.task('prod-build', function(done) {
+gulp.task('prod-build', function() {
   return gulp.src('index.html', { read: false })
     .pipe(shell([
       ( 'bundle exec jekyll build --config ' + prodConfig )
   ]));
-  done();
 });
 
-gulp.task('html', function(done) {
+gulp.task('html', function() {
   return gulp.src(htmlSource)
     .pipe(minifyHtml({
       collapseWhitespace: true,
@@ -62,63 +59,68 @@ gulp.task('html', function(done) {
       removeComments: true
     }))
     .pipe(gulp.dest(htmlWrite));
-  done();
 });
 
-gulp.task('css', function(done) {
+gulp.task('css', function() {
   return gulp.src(cssSource)
     .pipe(autoprefixer())
     .pipe(concatCss(cssWrite))
     .pipe(rename('style.min.css'))
     .pipe(minifyCss())
     .pipe(gulp.dest(cssWrite));
-  done();
 });
 
-gulp.task('lint', function(done) {
+gulp.task('lint', function() {
   return gulp.src(jsSource)
-        // eslint() attaches the lint output to the "eslint" property
-        // of the file object so it can be used by other modules.
-        .pipe(eslint())
-        // eslint.format() outputs the lint results to the console.
-        // Alternatively use eslint.formatEach() (see Docs).
-        .pipe(eslint.format())
-        // To have the process exit with an error code (1) on
-        // lint error, return the stream and pipe to failAfterError last.
-        .pipe(eslint.failAfterError());
-  done();
+    .pipe(eslint({
+      'globals': {
+        'require': true
+      }
+    }))
+    .pipe(eslint.formatEach())
+    .pipe(eslint.result(function (result) {
+      if((result.warningCount+result.errorCount) === 0) {
+        gutil.log('lint completed with no errors');
+      }
+    }));
 });
+
+gulp.task('watch', function() {
+  gulp.watch(jsSource, gulp.series('lint', function(done) {
+    done();
+  })
+)});
 
 gulp.task('images', function () {
   return gulp.src(imgSource)
     .pipe(minifyImg())
     .pipe(gulp.dest(imgWrite));
-  done();
 });
 
-gulp.task('analytics', function(done) {
+gulp.task('analytics', function() {
   return download('https://www.google-analytics.com/analytics.js')
     .pipe(gulp.dest(jsWrite));
-  done();
 });
 
-gulp.task('clean', function(done) {
+gulp.task('clean', function() {
   return gulp.src(destination, { read: false })
     .pipe(shell([
       ( 'rm -r ' + clean )
   ]));
-  done();
+});
+
+gulp.task('sitemap', function() {
+  return gulp.src(htmlSource)
+    .pipe(sitemap({
+      siteUrl: url,
+      verbose: true,
+      lastmod: getDateTimeOfLatestCommit,
+      getLoc: removeFileExtension
+    }))
+    .pipe(gulp.dest(htmlWrite));
 });
 
 gulp.task('seo', function(done) {
-  gulp.src(htmlSource)
-  .pipe(sitemap({
-    siteUrl: url,
-    verbose: true,
-    lastmod: getDateTimeOfLatestCommit,
-    getLoc: removeFileExtension
-  }))
-  .pipe(gulp.dest(htmlWrite));
   request('http://www.google.com/webmasters/tools/ping?sitemap={./sitemap.xml}');
   request('http://www.bing.com/webmaster/ping.aspx?siteMap={./sitemap.xml}');
   done();
@@ -128,7 +130,7 @@ gulp.task('default', gulp.series('dev-build', function(done) {
   done();
 }));
 
-gulp.task('prod', gulp.series('clean','prod-build','html','css','images','analytics','seo', function(done) {
+gulp.task('prod', gulp.series('clean','prod-build','html','css','images','analytics','sitemap','seo', function(done) {
   done();
 }));
 
@@ -140,7 +142,7 @@ function getDateTimeOfLatestCommit(file) {
   return buffer.toString().trim();
 }
 
-function removeFileExtension(siteUrl, loc, entry) {
+function removeFileExtension(siteUrl, loc) {
   return loc.substr(0, loc.lastIndexOf('.')) || loc; 
 }
 
