@@ -33,7 +33,8 @@ var url           = 'http://kellyripple.com';
 
 // todo:
 // 1. optimize font & image loading
-// 2. seo task
+// 2. git checkout --orphan <branch_name> (not sure if src is main or orphan)
+// 3. complete transition to Lanyon
 
 
 gulp.task('dev-build', function() {
