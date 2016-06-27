@@ -40,14 +40,14 @@ var url           = 'http://kellyripple.com';
 gulp.task('dev-build', function() {
   return gulp.src('index.html', { read: false })
     .pipe(shell([
-      ( 'bundle exec jekyll build --config ' + devConfig )
+      ( 'jekyll build --config ' + devConfig )
   ]));
 });
 
 gulp.task('prod-build', function() {
   return gulp.src('index.html', { read: false })
     .pipe(shell([
-      ( 'bundle exec jekyll build --config ' + prodConfig )
+      ( 'jekyll build --config ' + prodConfig )
   ]));
 });
 

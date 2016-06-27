@@ -24,7 +24,7 @@ github:
 
 environment:      production
 
-exclude:          [node_modules,gulpfile.js,package.json,Gemfile,Rakefile]
+exclude:          [node_modules,gulpfile.js,package.json]
 
 
 
